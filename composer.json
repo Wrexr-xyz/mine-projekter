@@ -1,0 +1,87 @@
+{
+    "name": "gedachtegoed/workspace",
+    "description": "Opinionated wrapper around tighten/duster with default configs, Larastan & Prettier blade formatting integration & CI workflows. For internal use.",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Willem Leuverink",
+            "email": "willem@leuver.ink",
+            "homepage": "https://leuver.ink"
+        }
+    ],
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/gwleuverink"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Gedachtegoed\\Workspace\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Gedachtegoed\\Workspace\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "lint": "vendor/bin/duster lint",
+        "fix": "vendor/bin/duster fix",
+        "analyze": "vendor/bin/phpstan analyse",
+        "baseline": "vendor/bin/phpstan analyse --generate-baseline",
+
+        "test": "vendor/bin/testbench package:test --bail --retry"
+    },
+    "require": {
+        "php": "^8.1|^8.2",
+        "illuminate/support": "^10.23|^11",
+        "gedachtegoed/workspace-core": "^0.1"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.53",
+        "laravel/pint": "^1.15",
+        "larastan/larastan": "^2.9",
+        "squizlabs/php_codesniffer": "^3.7",
+        "tightenco/duster": "^2.7",
+        "tightenco/tlint": "^9.3",
+        "orchestra/testbench": "^9",
+        "pestphp/pest": "^2.34",
+        "symfony/thanks": "^1.3",
+        "timacdonald/callable-fake": "^1.7"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "symfony/thanks": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Gedachtegoed\\Workspace\\ServiceProvider"
+            ]
+        },
+        "thanks": [
+            {
+                "name": "tightenco/duster",
+                "url": "https://github.com/tighten/duster"
+            },
+            {
+                "name": "laravel/prompts",
+                "url": "https://github.com/laravel/prompts"
+            },
+            {
+                "name": "timacdonald/callable-fake",
+                "url": "https://github.com/timacdonald/callable-fake"
+            },
+            {
+                "name": "gedachtegoed/workspace-core",
+                "url": "https://github.com/media-code/workspace-core"
+            }
+        ]
+    }
+}
